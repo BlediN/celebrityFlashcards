@@ -32,7 +32,7 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 0.1;
 }
 
 button {
@@ -46,6 +46,43 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+.next-btn {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.next-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.answer-input {
+  margin-top: 10px;
+}
+
+.answer-input input {
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.answer-input button {
+  width: 80px;
+  height: 30px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px; /* reduce padding from 10px to 5px */
+}
+
+.answer-input button:hover {
+  background-color: #3e8e41;
+}
+
 button:hover {
   border-color: #646cff;
 }

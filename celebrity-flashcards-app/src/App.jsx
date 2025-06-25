@@ -18,19 +18,71 @@ const celebrityData = [
 function App() {
   const [currentCelebrity, setCurrentCelebrity] = useState(celebrityData[0]);
 
-  const getRandomCelebrity = () => {
-    const randomIndex = Math.floor(Math.random() * celebrityData.length);
-    setCurrentCelebrity(celebrityData[randomIndex]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const getNextCelebrity = () => {
+    const newIndex = (currentIndex + 1) % celebrityData.length;
+    setCurrentIndex(newIndex);
+    setCurrentCelebrity(celebrityData[newIndex]);
+  };
+
+  const getPreviousCelebrity = () => {
+    const newIndex = (currentIndex - 1 + celebrityData.length) % celebrityData.length;
+    setCurrentIndex(newIndex);
+    setCurrentCelebrity(celebrityData[newIndex]);
+  };
+
+  const [answer, setAnswer] = useState('');
+  const [answerResult, setAnswerResult] = useState(null);
+
+  const checkAnswer = () => {
+    if (answer.toLowerCase() === currentCelebrity.name.toLowerCase()) {
+      setAnswerResult('Correct!');
+    } else {
+      setAnswerResult('Incorrect. The correct answer is ' + currentCelebrity.name);
+    }
+  };
+
+  const shuffleCards = () => {
+    const shuffled = [...celebrityData].sort(() => Math.random() - 0.5);
+    setCurrentIndex(0);
+    setCurrentCelebrity(shuffled[0]);
   };
 
   return (
     <div className="app">
       <h1>Celebrity Flashcards</h1>
       <h2>Guess the celebrity behind the card then click to find out!</h2>
-      <p>Total Cards: {celebrityData.length}</p> {/* ✅ Shows total number of cards */}
-      <Flashcard celebrity={currentCelebrity} /> {/* ✅ Shows only one card at a time */}
-      <button className="next-btn" onClick={getRandomCelebrity}>Next</button>
+      <p>Total Cards: {celebrityData.length}</p>
+      <Flashcard celebrity={currentCelebrity} />
+      <div className="button-container">
+        <button
+          className="next-btn"
+          onClick={getPreviousCelebrity}
+          disabled={currentIndex === 0}
+        >
+          Previous
+        </button>
+        <button
+          className="next-btn"
+          onClick={getNextCelebrity}
+          disabled={currentIndex === celebrityData.length - 1}
+        >
+          Next
+        </button>
+        <button className="next-btn" onClick={shuffleCards}>
+          Shuffle
+        </button>
+      </div>
+      <div className="answer-input">
+        <input type="text" value={answer} onChange={(e) => setAnswer(e.target.value)} />
+        <button className="submit-btn" onClick={checkAnswer}>
+          Submit
+        </button>
+      </div>
+      {answerResult && <p>{answerResult}</p>}
     </div>
+
   );
 }
 
