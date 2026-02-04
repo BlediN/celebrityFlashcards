@@ -6,7 +6,7 @@ import App from './App.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode basename="/celebrity-flashcards-app/">
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
 
 // createRoot(document.getElementById('root')).render(
