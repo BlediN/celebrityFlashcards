@@ -3,16 +3,16 @@ import Flashcard from "./components/Flashcard";
 import "./styles/App.css";
 
 const celebrityData = [
-  { name: "Leonardo DiCaprio", image: "/images/dicaprio.jpg" },
-  { name: "Rihanna", image: "/images/rihanna.jpg" },
-  { name: "Zendaya", image: "/images/zendaya.jpg" },
-  { name: "Keanu Reeves", image: "/images/keanu.jpg" },
-  { name: "Beyoncé", image: "/images/beyonce.jpg" },
-  { name: "Tom Holland", image: "/images/holland.jpg" },
-  { name: "Emma Watson", image: "/images/watson.jpg" },
-  { name: "Chris Hemsworth", image: "/images/hemsworth.jpg" },
-  { name: "Scarlett Johansson", image: "/images/johansson.jpg" },
-  { name: "Donald Trump", image: "/images/trump.jpg" }
+  { name: "Leonardo DiCaprio", image: "/public/images/dicaprio.jpg" },
+  { name: "Rihanna", image: "/public/images/rihanna.jpg" },
+  { name: "Zendaya", image: "/public/images/zendaya.jpg" },
+  { name: "Keanu Reeves", image: "/public/images/keanu.jpg" },
+  { name: "Beyoncé", image: "/public/images/beyonce.jpg" },
+  { name: "Tom Holland", image: "/public/images/holland.jpg" },
+  { name: "Emma Watson", image: "/public/images/watson.jpg" },
+  { name: "Chris Hemsworth", image: "/public/images/hemsworth.jpg" },
+  { name: "Scarlett Johansson", image: "/public/images/johansson.jpg" },
+  { name: "Donald Trump", image: "/public/images/trump.jpg" }
 ];
 
 function App() {
